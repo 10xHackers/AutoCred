@@ -6,10 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private static final int VIDEO_CAPTURE = 101;
 
     StorageReference mstorage;
+    EditText text;
+
+
 
 
 
@@ -35,8 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         button = findViewById(R.id.button);
         navigator=findViewById(R.id.navigator);
+        text=findViewById(R.id.name);
         mstorage=FirebaseStorage.getInstance().getReference();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 //        cloudinary.url().transformation(new Transformation().quality(50)).videoTag("dog");
 
         Log.i("heelo", "hit");
-        StorageReference storageRef = mstorage.child("videos");
+        StorageReference storageRef = mstorage.child(text.getText().toString());
 
         storageRef.putFile(videoUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
