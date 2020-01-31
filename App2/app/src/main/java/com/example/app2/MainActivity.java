@@ -17,10 +17,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.iceteck.silicompressorr.SiliCompressor;
 
 public class MainActivity extends AppCompatActivity {
 
     Button button;
+    Button navigator;
     private static final int VIDEO_CAPTURE = 101;
 
     StorageReference mstorage;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.button);
+        navigator=findViewById(R.id.navigator);
         mstorage=FirebaseStorage.getInstance().getReference();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +50,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        navigator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,Toggle.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -56,6 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
         Uri videoUri = data.getData();
+
+        //String filePath = SiliCompressor.with(MainActivity.this).compressVideo(videoUri);
+//        cloudinary.url().transformation(new Transformation().quality(50)).videoTag("dog");
 
         Log.i("heelo", "hit");
         StorageReference storageRef = mstorage.child("videos");
