@@ -58,13 +58,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        navigateButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent();
-//
-//            }
-//        });
+        navigateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,Toggle.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
