@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
-    android:backgroundTint="#03A9F4"
+    android:background="#E9EAF0"
+    android:backgroundTint="#F1F7FA"
     tools:context=".MainActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginBottom="84dp"
-        android:backgroundTint="#CDDC39"
+        android:backgroundTint="#34EBD5"
         android:text="capture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,7 +66,7 @@
         android:layout_marginStart="65dp"
         android:layout_marginEnd="68dp"
         android:layout_marginBottom="84dp"
-        android:backgroundTint="#CDDC39"
+        android:backgroundTint="#0DE0E0"
         android:text="navigator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
